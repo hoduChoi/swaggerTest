@@ -5,7 +5,36 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<select id="boardList" resultType="boardVO">
-        SELECT * FROM TB_BOARD
+        SELECT num, name, title, content, read_count as readCount, write_date as writeDate 
+        FROM TB_BOARD
     </select>
-
+    
+    <select id="boardOneList" resultType="boardVO">
+        SELECT num, name, title, content, read_count as readCount, write_date as writeDate  
+        FROM TB_BOARD
+        WHERE num = #{num} 
+    </select>
+	
+	<insert id="boardInsert">
+        INSERT INTO TB_BOARD (num, name, title, content, read_count, write_date) 
+        VALUES ((SELECT NVL(MAX(num)+1, 1) FROM TB_BOARD), #{name}, #{title}, #{content}, #{readCount}, #{writeDate}) 
+    </insert>
+    
+    <update id="boardUpdate">
+    	UPDATE TB_BOARD
+    	<set>
+    		title = #{title},
+	    	<if test="content != null">
+	    		content = #{content},
+	    	</if>
+	    	read_count = read_count +1 ,
+	    	write_date = #{writeDate}
+    	</set>
+    	WHERE num = #{num}
+    </update>
+    
+    <update id="boardDelete">
+    	DELETE FROM TB_BOARD
+    	WHERE num = #{num}
+    </update>
 </mapper>

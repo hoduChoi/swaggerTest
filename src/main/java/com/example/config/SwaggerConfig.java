@@ -27,7 +27,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter{
 		return new Docket(DocumentationType.SWAGGER_2)  
 		          .select()                                  
 		          .apis(RequestHandlerSelectors.basePackage("com.example.api"))   //RequestHandlerSelectors.any()           
-		          .paths(PathSelectors.ant("/test/**"))                         //PathSelectors.any()
+		          .paths(PathSelectors.ant("/board/**"))                         //PathSelectors.any()
 		          .build()
 		          .apiInfo(apiInfo());  
 	}
