@@ -4,8 +4,5 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
     <configuration>
     
-        <typeAliases>
-            <typeAlias type="com.example.dto.BoardVO" alias="boardVO"/>
-        </typeAliases>
         
     </configuration>

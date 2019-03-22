@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.bean.Greeting;
 
+import io.swagger.annotations.Api;
+
 @Controller
 public class TestController {
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
