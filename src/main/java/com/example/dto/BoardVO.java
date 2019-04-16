@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value="Board", description="Board Model") //ui에서 체크를 할 수가 없음.
-public class BoardVO {
+public class BoardVO{
 //	
 	//@ApiModelProperty(hidden = true)
 	private Long num;
